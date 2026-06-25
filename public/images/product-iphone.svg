@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1f35"/>
+      <stop offset="100%" style="stop-color:#0f1830"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="200" fill="url(#bg1)"/>
+  <!-- Phone body -->
+  <rect x="150" y="20" width="100" height="160" rx="16" fill="#0a0c10" stroke="#2e3850" stroke-width="1.5"/>
+  <rect x="158" y="32" width="84" height="136" rx="10" fill="#151921"/>
+  <!-- Notch -->
+  <rect x="178" y="28" width="44" height="10" rx="5" fill="#0a0c10"/>
+  <!-- Screen icons grid -->
+  <rect x="166" y="48" width="18" height="18" rx="4" fill="#1a1f2e"/>
+  <rect x="190" y="48" width="18" height="18" rx="4" fill="#f97316" opacity="0.7"/>
+  <rect x="214" y="48" width="18" height="18" rx="4" fill="#22c55e" opacity="0.7"/>
+  <rect x="166" y="72" width="18" height="18" rx="4" fill="#3b82f6" opacity="0.7"/>
+  <rect x="190" y="72" width="18" height="18" rx="4" fill="#1a1f2e"/>
+  <rect x="214" y="72" width="18" height="18" rx="4" fill="#1a1f2e"/>
+  <!-- Price tag -->
+  <rect x="162" y="102" width="76" height="32" rx="6" fill="#f97316" opacity="0.15" stroke="#f97316" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="200" y="122" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#f97316">$3.299.000</text>
+  <!-- Home bar -->
+  <rect x="180" y="158" width="40" height="3" rx="1.5" fill="#2e3850"/>
+  <!-- Badges -->
+  <rect x="16" y="14" width="68" height="22" rx="7" fill="#22c55e" opacity="0.9"/>
+  <text x="50" y="29" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0a0c10">Min. Nov</text>
+  <rect x="316" y="14" width="68" height="22" rx="7" fill="#f97316" opacity="0.9"/>
+  <text x="350" y="29" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0a0c10">Score 9/10</text>
+</svg>

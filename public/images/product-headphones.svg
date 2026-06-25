@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#231a35"/>
+      <stop offset="100%" style="stop-color:#150f25"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="200" fill="url(#bg3)"/>
+  <!-- Headphone arc -->
+  <path d="M 140 110 Q 140 50 200 50 Q 260 50 260 110" fill="none" stroke="#2e3850" stroke-width="10" stroke-linecap="round"/>
+  <!-- Left ear cup -->
+  <rect x="118" y="100" width="36" height="50" rx="14" fill="#1a1f2e" stroke="#2e3850" stroke-width="1.5"/>
+  <rect x="126" y="110" width="20" height="30" rx="8" fill="#151921"/>
+  <!-- Right ear cup -->
+  <rect x="246" y="100" width="36" height="50" rx="14" fill="#1a1f2e" stroke="#2e3850" stroke-width="1.5"/>
+  <rect x="254" y="110" width="20" height="30" rx="8" fill="#151921"/>
+  <!-- NC indicator -->
+  <circle cx="200" cy="74" r="10" fill="#f97316" opacity="0.15" stroke="#f97316" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="200" y="78" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#f97316">NC</text>
+  <!-- Price -->
+  <rect x="148" y="164" width="104" height="24" rx="6" fill="#f97316" opacity="0.12" stroke="#f97316" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="200" y="181" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#f97316">$899.000</text>
+  <!-- Badges -->
+  <rect x="16" y="14" width="68" height="22" rx="7" fill="#22c55e" opacity="0.9"/>
+  <text x="50" y="29" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0a0c10">Min. Nov</text>
+  <rect x="316" y="14" width="68" height="22" rx="7" fill="#f97316" opacity="0.9"/>
+  <text x="350" y="29" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0a0c10">Score 8/10</text>
+</svg>
