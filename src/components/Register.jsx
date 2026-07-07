@@ -1,5 +1,5 @@
 // Componente de registro de usuarios
-// Se conecta al servicio web json-server en el puerto 3001
+// Se conecta al endpoint /registro de FastAPI que guarda en MySQL
 
 import { useState } from 'react'
 
@@ -33,30 +33,27 @@ function Register({ onIrLogin }) {
     }
 
     try {
-      // Verificar si el email ya está registrado
-      const checkRes = await fetch(`http://localhost:3001/usuarios?email=${email}`)
-      const checkData = await checkRes.json()
-
-      if (checkData.length > 0) {
-        setError('Este correo ya está registrado.')
-        return
-      }
-
-      // Enviar el nuevo usuario al servicio web
-      const res = await fetch('http://localhost:3001/usuarios', {
+      // Enviar los datos al endpoint de FastAPI
+      const res = await fetch('http://127.0.0.1:8000/registro', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nombre, email, password })
+        body: JSON.stringify({
+          nombre: nombre,
+          correo: email,
+          contraseña: password
+        })
       })
 
-      if (res.ok) {
-        setMensaje('Usuario registrado correctamente.')
+      const data = await res.json()
+
+      if (data.mensaje) {
+        setMensaje(data.mensaje)
         setNombre('')
         setEmail('')
         setPassword('')
         setConfirmar('')
       } else {
-        setError('Error al registrar el usuario.')
+        setError(data.error)
       }
     } catch (err) {
       setError('No se pudo conectar al servicio web.')

@@ -1,5 +1,5 @@
 // Componente de inicio de sesión
-// Verifica las credenciales contra el servicio web json-server en el puerto 3001
+// Se conecta al endpoint /login de FastAPI que verifica en MySQL
 
 import { useState } from 'react'
 
@@ -25,20 +25,25 @@ function Login({ onIrRegistro, onLoginExitoso }) {
     }
 
     try {
-      // Buscar el usuario en el servicio web por email y contraseña
-      const res = await fetch(
-        `http://localhost:3001/usuarios?email=${email}&password=${password}`
-      )
+      // Enviar credenciales al endpoint de FastAPI
+      const res = await fetch('http://127.0.0.1:8000/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          correo: email,
+          contraseña: password
+        })
+      })
+
       const data = await res.json()
 
-      // Si encontró un usuario con esas credenciales
-      if (data.length > 0) {
-        setMensaje(`Autenticación satisfactoria. Bienvenido, ${data[0].nombre}.`)
+      if (data.mensaje) {
+        setMensaje(data.mensaje)
         setTimeout(() => {
-          onLoginExitoso(data[0])
+          onLoginExitoso(data.usuario)
         }, 1500)
       } else {
-        setError('Error en la autenticación. Correo o contraseña incorrectos.')
+        setError(data.error)
       }
     } catch (err) {
       setError('No se pudo conectar al servicio web.')
