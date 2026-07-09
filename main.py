@@ -1,10 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import mysql.connector
+from dotenv import load_dotenv
+import os
+
+# Cargar variables de entorno desde .env
+load_dotenv()
 
 app = FastAPI()
 
-# Configuración de CORS
+# Configuración de CORS para conectarse al frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173"],
@@ -12,13 +17,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Conexión a MySQL
+# Conexión a MySQL usando variables de entorno
 def get_connection():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="Alex251100$",
-        database="app_finder"
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME")
     )
 
 # Productos de prueba
@@ -80,3 +85,14 @@ def login(datos: dict):
         return {"mensaje": "Autenticación satisfactoria.", "usuario": usuario}
     else:
         return {"error": "Error en la autenticación. Correo o contraseña incorrectos."}
+
+# Endpoint GET - obtener todos los usuarios de MySQL
+@app.get("/usuarios")
+def get_usuarios():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT id_usuario, nombre, correo, fecha_registro FROM usuario")
+    usuarios = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return usuarios
